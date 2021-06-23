@@ -8,6 +8,11 @@
 docker-compose up
 ```
 ---
+Для запуска тестов
+```shell script
+go run test ./...
+```
+---
 Для запуска сервиса локально
 ```shell script
 cp config/config.dist.toml config/config.toml
