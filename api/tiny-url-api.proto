@@ -5,7 +5,7 @@ syntax = "proto3";
 package user_service_api;
 option go_package = "../pkg/tiny-url-api";
 
-service UserService {
+service UrlService {
   rpc Create(CreateRequest) returns (CreateResponse);
   rpc Get(GetRequest) returns (GetResponse);
 
