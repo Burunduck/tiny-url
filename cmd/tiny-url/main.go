@@ -4,17 +4,18 @@ import (
 	"fmt"
 	jww "github.com/spf13/jwalterweatherman"
 	"google.golang.org/grpc"
-	"net"
-	ur "tiny-url/internal/app/repository/psql"
-	uu "tiny-url/internal/app/usecase"
-	ud "tiny-url/internal/app/delivery/grpc"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"net"
 	"os"
 	"time"
 	config "tiny-url/internal/app"
-	"gorm.io/driver/postgres"
+	ud "tiny-url/internal/app/delivery/grpc"
+	ur "tiny-url/internal/app/repository/psql"
+	uu "tiny-url/internal/app/usecase"
 	"tiny-url/internal/models"
 	desc "tiny-url/pkg/tiny-url-api"
+	"tiny-url/pkg/utils"
 )
 
 //Необходимо реализовать сервис, который должен предоставлять API по созданию сокращённых ссылок следующего формата:
@@ -65,6 +66,9 @@ func main() {
 	desc.RegisterUrlServiceServer(serverGrpc, ud.NewServer(urlUsecase))
 
 	jww.INFO.Printf("Service started at port :%d", cfg.ServiceGrpcPort)
+
+	a := utils.Hash("a")
+	jww.DEBUG.Println(a)
 
 	err = serverGrpc.Serve(lis)
 	if err != nil {

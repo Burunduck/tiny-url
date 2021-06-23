@@ -17,7 +17,7 @@ func NewUserRepository(db *gorm.DB) models.UrlRepository {
 	}
 }
 
-func (u UrlRepository) Create(ctx context.Context, baseUrl string) (string, error) {
+func (u UrlRepository) Create(ctx context.Context, url models.Url) (string, error) {
 	panic("implement me")
 }
 

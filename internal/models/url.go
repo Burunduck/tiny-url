@@ -13,6 +13,6 @@ type UrlUsecase interface {
 }
 
 type UrlRepository interface {
-	Create(ctx context.Context, baseUrl string) (string, error)
+	Create(ctx context.Context, url Url) (string, error)
 	Get(ctx context.Context, tinyUrl string) (string, error)
 }
