@@ -1,0 +1,5 @@
+ServiceHost = "localhost"
+ServiceGrpcPort = 8091
+
+# Уровень логирования: FATAL, ERROR, WARN, INFO, DEBUG
+LogLevel = "DEBUG"
