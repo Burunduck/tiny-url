@@ -1,4 +1,4 @@
-SERVICE_NAME = user-crud-service
+SERVICE_NAME = tiny-url
 
 .PHONY: run
 run:
