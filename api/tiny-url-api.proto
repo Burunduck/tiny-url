@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+//protoc --go_out=plugins=grpc:. *.proto
+
+package user_service_api;
+option go_package = "../pkg/tiny-url-api";
+
+service UserService {
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+
+}
+
+message CreateRequest {
+  string baseUrl = 1;
+}
+
+message CreateResponse {
+  string tinyUrl = 1;
+}
+
+message GetRequest {
+  string tinyUrl = 1;
+}
+
+message GetResponse {
+  string baseUrl = 1;
+}
