@@ -23,11 +23,11 @@ func (u UrlUsecase) Create(ctx context.Context, baseUrl string) (string, error) 
 	defer cancel()
 
 	newTinyUrl := utils.Hash(baseUrl)
-	baseUrl, err := u.Get(ctx, newTinyUrl)
+	checkTinyUrl, err := u.Get(ctx, newTinyUrl)
 
-	for baseUrl != "" {
+	for checkTinyUrl != "" {
 		newTinyUrl := utils.Hash(baseUrl)
-		baseUrl, _ = u.Get(ctx, newTinyUrl)
+		checkTinyUrl, _ = u.Get(ctx, newTinyUrl)
 	}
 
 	tinyUrl, err := u.urlRepo.Create(ctx, models.Url{

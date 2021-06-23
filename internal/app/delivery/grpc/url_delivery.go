@@ -34,7 +34,7 @@ func (s *Server) Get(ctx context.Context, request *desc.GetRequest) (*desc.GetRe
 		TinyUrl: request.TinyUrl,
 	}
 	var err error
-	u.TinyUrl, err = s.UrlUsecase.Get(ctx, u.BaseUrl)
+	u.BaseUrl, err = s.UrlUsecase.Get(ctx, u.TinyUrl)
 	if err != nil {
 		return nil, err
 	}
